@@ -5,11 +5,8 @@
    <title>Slider</title>
    <link rel="stylesheet" href="assets/css/layout.css">
    <link rel="stylesheet" href="assets/css/style.css">
-   <script src="assets/js/script.js"></script>
-   
    <script>
    window.onload = function() {
-       // ви можете зробити скільки завгодно слайдів
        let slides = [
            {
                title: "Google",
@@ -20,9 +17,9 @@
                background: "https://via.placeholder.com/500x150",
                link: "http://yahoo.com"
            }, {
-               title: "Какой-то текст",
-               background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwmVK5l6Jlu5EqqtYFPpEoNpcg0ON1ZZWwOA&usqp=CAU",
-               link: "http://www-csd.univer.kharkov.ua/"
+               title: "Бумажный дом",
+               background: "assets/img/bumdom.jpg",
+               link: "https://www.youtube.com/watch?v=3oX1nAe5bm8"
            }
        ]
        Slider.initSlider(slides);
@@ -31,49 +28,61 @@
 
 </head>
 <body>
-<header class="header"><p><img width = "50px" src = "public/images/1.png"></p>
-</header>
+    <header class="header">
+    <img src="assets/img/logo.jpg">
+    </header>
 <div class="container">
    <main class="center column">
        <article>
+           <button class="swap" type = "button">Show</button>
 		   <div class = "content hidden">
            <h1>Slider</h1>
-		   <button onclick="Slider.showHide('block_id')">Show</button>
-            <div id="block_id" style="display: none;">
-                <div id="slider"></div>
-            </div>
-		   <button id ="autop" class ="button" type ="button">Prev</button>
-            <script>
-                autop.addEventListener("click", function ()
-                {
-                    Slider.prevSlide();
-                })
-            </script>
-            <button id ="auton" class ="button" type ="button">Next</button>
-            <script>
-                auton.addEventListener("click", function ()
-                {
-                    Slider.nextSlide();
-                })
-            </script>
-		   <button id = "auto" class = "button" type = "button">Start</button>
-		   <script>
-		   
-		   auto.addEventListener("click", function() {
-		   
-		   if (document.getElementById("auto").textContent ==="Start") {
-		   document.getElementById("auto").textContent ="Stop";
-		   timerID = setInterval(function () {
-		   Slider.nextSlide();
-		   }, 1000)
-		   }else {
-		   document.getElementById("auto").textContent ="Start";
-		   clearInterval(timerID);
-		   }
-		   })
-		   </script>
-		</div>
+           <p></p>
+           <div id="slider"></div>
+                <input id="prev" class="button" type="button" value="Prev"/>
+                <input id="next" class="button" type="button" value="Next"/>
+                <button id="auto" class="button" type="button">Start</button>
+                <div id = "buttons"></div>
+                <script src="assets/js/script.js"></script>
+                <script>
+                    next.addEventListener("click", function (){
+                        Slider.nextSlide();
+                    });
+                    prev.addEventListener("click", function (){
+                        Slider.prevSlide();
+                    });
 
+
+
+                    auto.addEventListener("click", function (){
+
+                        if(document.getElementById("auto").textContent === "Start"){
+                            document.getElementById("auto").textContent = "Stop";
+                            timerID = setInterval(function (){
+                                Slider.nextSlide();
+                            }, 1000*2)
+                        }else{
+                            document.getElementById("auto").textContent = "Start";
+                            clearInterval(timerID);
+                        }
+                    })
+                </script>
+            </div>
+            <script>
+                const btn = document.querySelector(".swap");
+                const content = document.querySelector(".content")
+
+                btn.addEventListener("click", btnClick);
+
+                function btnClick(){
+                    if (content.classList.contains("hidden")){
+                        btn.textContent = "Hide";
+                    }else{
+                        btn.textContent = "Show";
+                    }
+                    content.classList.toggle("hidden");
+                }
+            </script>
    </article>
    </main>
    <nav class="left column">

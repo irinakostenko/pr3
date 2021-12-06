@@ -8,10 +8,13 @@ body {
    font-family:Sans-serif;
    line-height: 1.5em;
 }
-
+img{
+   height: 60px;
+   width: 60px;
+}
 .footer,
 .push {
-   height: 50px;
+   height: 100px;
 }
 
 .container {
@@ -80,7 +83,7 @@ nav ul a {
    background: #BCCE98;
 }
 .header{
-   height: 60px;
+   min-height: 60px;
 }
 
 .left {

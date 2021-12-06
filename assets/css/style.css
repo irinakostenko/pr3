@@ -1,19 +1,18 @@
+table{
+   width: 500px;
+   height: 300px;
+   background: white;
+   color: white;
+   border: 1px black;
+}
+th{
+   background: lightgrey;
+}
 #slider{
    overflow: hidden;
    position: relative;
    width: 100%;
    height: 300px;
-}
-
-button {
-	background-color: #4CA79C;
-	border-radius: 20px;
-	color: #FFFFFF;
-	border: none;
-	padding: 7px 25px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	
 }
 
 a.link {
@@ -32,7 +31,41 @@ a.link {
    width: 100%;
    top: 0;
 }
-/* стилі для анімації нижче */
+
+.button{
+   position: relative;
+   background-color: #4CA74C;
+   color: white;
+   border: none;
+   width: 80px;
+   height: 30px;
+   top: 10px;
+   border-radius: 10px;
+}
+.btn{
+   position: relative;
+   background-color: #4CA74C;
+   color: white;
+   border: none;
+   width: 80px;
+   height: 30px;
+   top: 20px;
+   border-radius: 10px;
+   margin: 3px;
+}
+.swap{
+   background-color: #4CA74C;
+   color: white;
+   border: none;
+   width: 80px;
+   height: 30px;
+   top: 10px;
+   border-radius: 10px;
+}
+
+.hidden {
+   display: none;
+}
 
 @-webkit-keyframes slideIn {
    100% { left: 0; }
@@ -79,4 +112,3 @@ a.link {
    -webkit-animation: slideOutRight 1s forwards;
    animation: slideOutRight 1s forwards;
 }
-
